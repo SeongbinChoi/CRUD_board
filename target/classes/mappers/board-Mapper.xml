@@ -27,7 +27,7 @@ where bno =#{bno}
 delete from tbl_board where bno =#{bno}
 </delete>
 
-<select id="listAll" resultType="com.sample.domain.BoardVO">
+<select id="listAll" resultType="com.myp.domain.BoardVO">
 <![CDATA[
 select
 	bno, title, content, writer, regdate, viewcnt

@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.myp.domain.BoardVO;
 
+
+@Repository
 public class BoardDAOImpl implements BoardDAO {
 
 	@Inject

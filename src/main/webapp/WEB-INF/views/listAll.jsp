@@ -1,32 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> 
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>°Ô½ÃÆÇ ¸ñ·Ï</title>
+<meta charset="UTF-8">
+
+<title>ê²Œì‹œíŒ ëª©ë¡</title>
 </head>
 <form action ="regist" method="get">
 <body>
 <table border="1" width="880">
 	<tr>
 		<td width="77">
-			<p aiign="center">±Û¹øÈ£</p>
+			<p aiign="center">ê¸€ë²ˆí˜¸</p>
 		</td>
 		<td width="327">
-			<p aiign="center">Á¦¸ñ</p>
+			<p aiign="center">ì œëª©</p>
 		</td>
 		<td width="197">
-			<p aiign="center">ÀÛ¼ºÀÚ</p>
+			<p aiign="center">ìž‘ì„±ìž</p>
 		</td>
 		<td width="155">
-			<p aiign="center">ÀÛ¼ºÀÏ</p>
+			<p aiign="center">ìž‘ì„±ì¼</p>
 		</td>
 		<td width="90">
-			<p aiign="center">Á¶È¸¼ö</p>
+			<p aiign="center">ì¡°íšŒìˆ˜</p>
 		</td>
 	</tr>
 	
@@ -40,7 +42,7 @@
 	</tr>
 	</c:forEach>
 </table>
-	<button type="submit">±Û¾²±â</button>
+	<button type="submit">ê¸€ì“°ê¸°</button>
 </body>
 </form>
 </html>

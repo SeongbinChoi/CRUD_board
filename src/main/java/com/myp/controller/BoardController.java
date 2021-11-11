@@ -6,18 +6,43 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.myp.domain.BoardVO;
 import com.myp.service.BoardService;
 
 @Controller
-@RequestMapping(value="/") // ÁÖ¼ÒÆĞÅÏ
+@RequestMapping(value="/") 
 public class BoardController {
-
-	@Inject //ÁÖÀÔ ¸í½Ã
-	private BoardService service; //service È£ÃâÀ» À§ÇÑ °´Ã¼ »ı¼º
 	
-	@RequestMapping(value="/listAll", method=RequestMethod.GET) // ÁÖ¼Ò È£Ãâ ¸í½Ã. È£ÃâÇÏ·Á´Â ÁÖ¼Ò¿Í REST ¹æ½Ä ¼³Á¤(GET)
+
+	@Inject //ì£¼ì… ëª…ì‹œ
+	
+	private BoardService service; //service í˜¸ì¶œì„ ìœ„í•œ ê°ì²´ ìƒì„±
+	
+	@RequestMapping(value = "/listAll", method = RequestMethod.GET) //ì£¼ì†Œ í˜¸ì¶œ ëª…ì‹œ
 	public void listAll(Model model)throws Exception { 
-		model.addAttribute("list", service.listAll()); //jsp¿¡ ½ÉºÎ¸§ÇÒ ³»¿ª(¼­ºñ½º È£Ãâ)
+		
+		model.addAttribute("list", service.listAll()); //jspì— ì£¼ì…í•  ë‚´ì—­(ì„œë¹„ìŠ¤ í˜¸ì¶œ)
+	}
+	
+	@RequestMapping(value = "/regist", method = RequestMethod.GET) //GETë°©ì‹ í˜ì´ì§€ í˜¸ì¶œ
+	public void registerGET(BoardVO board, Model model) throws Exception{
+
+	}
+	
+	@RequestMapping(value = "/regist", method = RequestMethod.POST) //POSTë°©ì‹ìœ¼ë¡œ ë‚´ìš© ì „ì†¡
+	public String registPOST(BoardVO board, RedirectAttributes rttr) throws Exception{
+		// ì¸ìê°’ìœ¼ë¡œ REDIRECT ì‚¬ìš©
+		service.regist(board);
+		
+	return "redirect:/listAll"; 
+	}
+	
+	@RequestMapping(value = "/read", method = RequestMethod.GET) //GETë°©ì‹ìœ¼ë¡œ í˜ì´ì§€ í˜¸ì¶œ
+	public void read( @RequestParam("bno")int bno, Model model) throws Exception{
+		// ì¸ìê°’ì€ íŒŒë¼ë¯¸í„° ê°’ìœ¼ë¡œ ê¸°ë³¸í‚¤ì¸ ê¸€ë²ˆí˜¸ë¥¼ ê¸°ì¤€ìœ¼ë¡œ Modelì„ ì‚¬ìš©í•˜ì—¬ ë¶ˆëŸ¬ì˜´
+		model.addAttribute(service.read(bno)); // read ì„œë¹„ìŠ¤ í˜¸ì¶œ
 	}
 }

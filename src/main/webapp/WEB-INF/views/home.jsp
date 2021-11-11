@@ -12,7 +12,7 @@
 
 
 <h1>
-	Hello world!  
+	여긴 한글 되나?
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>

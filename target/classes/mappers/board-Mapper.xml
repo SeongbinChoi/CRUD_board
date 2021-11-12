@@ -38,4 +38,8 @@ order by bno desc, regdate desc
 ]]>
 </select>
 
+<select id="Cnt" resultType="com.myp.domain.BoardVO">
+select count(*) from tbl_board;
+</select>
+
 </mapper>

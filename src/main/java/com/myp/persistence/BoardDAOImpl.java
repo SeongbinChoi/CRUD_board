@@ -38,5 +38,4 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<BoardVO> listAll() throws Exception {
 		return session.selectList(namespace + ".listAll");
 	}
-
 }

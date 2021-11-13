@@ -30,6 +30,12 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
+	public void updateViewCnt(Integer bno) throws Exception {
+		session.update(namespace + ".updateViewCnt", bno);
+		
+	}
+	
+	@Override
 	public void delete(Integer bno) throws Exception {
 		session.delete(namespace + ".delete", bno);
 	}
@@ -38,4 +44,5 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<BoardVO> listAll() throws Exception {
 		return session.selectList(namespace + ".listAll");
 	}
+
 }

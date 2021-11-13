@@ -20,11 +20,16 @@ where bno = #{bno}
 
 <update id="update">
 update tbl_board set title =#{title}, content=#{content}
-where bno =#{bno}
+where bno = #{bno}
+</update>
+
+<update id="updateViewCnt">
+update tbl_board set viewcnt = viewcnt + 1
+where bno = #{bno}
 </update>
 
 <delete id="delete">
-delete from tbl_board where bno =#{bno}
+delete from tbl_board where bno = #{bno}
 </delete>
 
 <select id="listAll" resultType="com.myp.domain.BoardVO">
